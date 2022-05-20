@@ -1,2 +1,13 @@
 # WhyAblo
 Final Project for APCS. Honestly no idea what to put here.
+
+Link to Prototype Doc: https://docs.google.com/document/d/1RwpOk4EWAY6wyFdgnQgyFCDE0M7m2QFefV3ZeXRwB9I/edit?usp=sharing
+
+# Group Name
+Kanye East
+
+# Members
+Jerry Teng and Matthew Tai
+
+# Brief Project Description
+For our inspirations, we first looked at “Evolution Simulator” on MinuteLabs.io. Here, blobs move around the map, trying to collect the green spheres (i.e food) in order to survive and reproduce, whilst competing against the other blobs for said spheres. This sort of “random life simulation” gameplay is something we wanted to implement in our project, though we instead want to create a fantasy world where adventurers (our version of blobs) constantly fight randomly spawning enemies. Enemies and adventurers that exist for long enough or kill enough of the opposing force will “evolve”. In terms of our game’s appearance, we turned to WorldBox. While we obviously won’t be able to reach the level of design that WorldBox has, we aim for our game to be top down and to be composed of  “tiles” of some kind.
