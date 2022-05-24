@@ -2,18 +2,18 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 public class Tile{
-  String terrainType;
+  //String terrainType;
   int xCoordinate, yCoordinate;
   
-  public Tile(String type, int x, int y){
-    terrainType = type;
+  public Tile(/*String type,*/ int x, int y){
+    //terrainType = type;
     xCoordinate = x;
     yCoordinate = y;
   }
   
-  public String getTerrainType(){
-    return terrainType;
-  }
+  //public String getTerrainType(){
+    //return terrainType;
+  //}
   
   public String[] getAdjacentTiles(){
     String[] output;
@@ -27,9 +27,10 @@ public class Tile{
     return output;
   }
   
-  public String getRandomTerrainType(){
-    String[] terrainType = {"Forest", "Plains", "Mountain", "Ocean", "Swamp"};
-    return terrainType[(int) (Math.random() * terrainType.length)];
-  }
+  //public String getRandomTerrainType(){
+    //String[] terrainType = {"Forest", "Plains", "Mountain", "Ocean", "Swamp"};
+    //return terrainType[(int) (Math.random() * terrainType.length)];
+  //}
   
+  public void applyEffect(){}
 }
