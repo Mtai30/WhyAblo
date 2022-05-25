@@ -12,9 +12,9 @@ public class Entity{
   stats[4] =  wisdom;
   stats[5] =  charisma;
   */
-  int[] stats;
+  double[] stats;
   
-  public Entity(/*String raceParameter,*/ String nameParameter, int[] statsParameter){
+  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter){
     //race = raceParameter;
     name = nameParameter;
     for (int i = 0; i < 6; i++){
@@ -23,6 +23,14 @@ public class Entity{
   }
   
   public void evolve(){
+    
+  }
+  
+  public double[] getStats(){
+    return stats;
+  }
+  
+  public double[] setStats(){
     
   }
 }
