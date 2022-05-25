@@ -6,6 +6,5 @@ public class Forest extends Dry{
   public void applyEffect(Entity a){
     double[] stats = a.getStats();
     stats[1] = stats[1] * .9;
-    a = 
   }
 }
