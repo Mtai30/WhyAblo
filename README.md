@@ -15,3 +15,6 @@ For our inspirations, we first looked at “Evolution Simulator” on MinuteLabs
 5/24/22 Matthew
 First commit for the Logs? Idk if I'm doing this right. 
 Made a separate branch. Realized that TileList and EntityList need to be their own separate classes so I'm getting started on that. Not much work done today, mostly figuring out how branches work. Also in class pair-coding with Jerry, we created the basic "Game" class which has our setup() and draw(). We also started on Tile and most of the Tile() methods. It looks like Jerry did some work on the Entity class but didn't make note of it in the logs.
+
+5/25/22 Matthew
+It looks like Jerry forgot again to log his work. I will remind him again tomorrow. Other than that, everything I did last night kinda just got replaced by what me and Jerry pair-coded in class today, so I just deleted it all. I made no significant progress coding tongiht because I went to a funeral. Will make sure to get more done tomorrow.
