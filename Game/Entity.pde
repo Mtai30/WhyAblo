@@ -43,4 +43,12 @@ public class Entity{
       }
     }
   }
+  
+  public double[] getStats(){
+    return stats;
+  }
+  
+  public double[] setStats(){
+    
+  }
 }
