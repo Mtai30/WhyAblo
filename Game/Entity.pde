@@ -29,12 +29,22 @@ public class Entity{
   public void reproduce(){
     int offspringCount = (int) (Math.random() * 3);
     for (int i = 0; i < offspringCount; i++){
-      double[] defaultStats = {5, 5, 5, 5, 5, 5};
-      Entity child = new Entity(this.name + "'s child", defaultStats);
+      //make new Entity
     }
   }
   
-  public void evolve(){
-    
+  public void evolve(){ 
+    if (Math.random() > 0.5){
+      this.reproduce();
+    }
+    for (int i = 0; i < 6; i++){
+      if (Math.random() > 0.5){
+        if (Math.random() > 0.5){
+          stats[i] *= 1.1;
+        } else{
+          stats[i] *= 0.9;
+        }
+      }
+    }
   }
 }
