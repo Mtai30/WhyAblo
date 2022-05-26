@@ -18,3 +18,6 @@ Made a separate branch. Realized that TileList and EntityList need to be their o
 
 5/25/22 Matthew
 It looks like Jerry forgot again to log his work. I will remind him again tomorrow. Other than that, everything I did last night kinda just got replaced by what me and Jerry pair-coded in class today, so I just deleted it all. I made no significant progress coding tongiht because I went to a funeral. Will make sure to get more done tomorrow.
+
+5/25/22 Jerry
+Still having trouble using branches and merging. I forgot to type "--no-ff" once, and now I think my branch is ahead of main, but I can't change it. Working on the Entity object class and its subclasses (creating methods and the like).
