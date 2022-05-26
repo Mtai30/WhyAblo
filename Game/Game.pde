@@ -1,5 +1,7 @@
+int size = 1000;
+
 void setup(){
-  size(1000, 1000);
+  size(size, size);
 }
 
 void draw(){
