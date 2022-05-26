@@ -12,9 +12,9 @@ public class Entity{
   stats[4] =  wisdom;
   stats[5] =  charisma;
   */
-  int[] stats;
+  double[] stats;
   
-  public Entity(/*String raceParameter,*/ String nameParameter, int[] statsParameter){
+  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter){
     //race = raceParameter;
     name = nameParameter;
     for (int i = 0; i < 6; i++){
@@ -22,7 +22,25 @@ public class Entity{
     }
   }
   
-  public void evolve(){
-    
+  public void reproduce(){
+    int offspringCount = (int) (Math.random() * 3);
+    for (int i = 0; i < offspringCount; i++){
+      //make new Entity
+    }
+  }
+  
+  public void evolve(){ 
+    if (Math.random() > 0.5){
+      this.reproduce();
+    }
+    for (int i = 0; i < 6; i++){
+      if (Math.random() > 0.5){
+        if (Math.random() > 0.5){
+          stats[i] *= 1.1;
+        } else{
+          stats[i] *= 0.9;
+        }
+      }
+    }
   }
 }
