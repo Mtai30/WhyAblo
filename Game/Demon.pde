@@ -5,11 +5,11 @@ public class Demon extends Entity{
     canEvolve = false;
   }
   
-  public void evolve(){
+  void evolve(){
     if (killCount % 10 == 0 && killCount != 0){
       canEvolve = true;
       this.reproduce();
     }
     canEvolve = false;
   }
-}}
+}

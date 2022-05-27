@@ -5,7 +5,7 @@ public class Adventurer extends Entity{
     canEvolve = false;
   }
   
-  public void evolve(){
+  void evolve(){
     if (age % 5 == 0 && age != 0){
       canEvolve = true;
       this.reproduce();
