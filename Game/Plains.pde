@@ -3,7 +3,7 @@ public class Plains extends Dry{
     super(x, y);
   }
   
-  public void applyEffect(){
+  void applyEffect(){
     
   }
 }

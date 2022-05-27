@@ -3,7 +3,7 @@ public class Ocean extends Aquatic{
     super(x, y);
   }
   
-  public void applyEffect(){
+  void applyEffect(){
   
   }
 }

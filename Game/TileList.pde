@@ -1,7 +1,7 @@
 public class TileList{
-  Tile[][] tileList;
+  ArrayList<Tile> tileList;
   
   public TileList(){
-    tileList = new Tile[size/10][size/10];
+    tileList = new ArrayList<Tile>();
   }
 }

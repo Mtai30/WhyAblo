@@ -3,7 +3,7 @@ public class Swamp extends Aquatic{
     super(x, y);
   }
   
-  public void applyEffect(){
+  void applyEffect(){
     
   }
 }
