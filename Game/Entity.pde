@@ -6,6 +6,8 @@ public class Entity{
   String name;
   int killCount;
   int age;
+  int xCoordinate;
+  int yCoordinate;
   /*
   stats[0] = strength;
   stats[1] =  dexterity;
@@ -19,17 +21,20 @@ public class Entity{
   
   public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter){
     //race = raceParameter;
+    stats = new double[6];
     killCount = 0;
     age = 0;
     name = nameParameter;
     age = 0;
+    xCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
+    yCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
     killCount = 0;
     for (int i = 0; i < 6; i++){
       stats[i] = statsParameter[i];
     }
   }
   
-  public void reproduce(){
+  void reproduce(){
     double statModifier = (0.15 * Math.random()) + 0.9;
     double[] childStats = new double[6];
     for (int i = 0; i < 6; i++){
@@ -43,17 +48,21 @@ public class Entity{
     }
   }
   
-  public void evolve(){ 
+  void evolve(){ 
     if (Math.random() > 0.5){
       this.reproduce();
     }
   }
   
-  public double[] getStats(){
+  double[] getStats(){
     return stats;
   }
   
-  public void setStats(double[] statsArray){
+  void display(){
+    ellipse(xCoordinate, yCoordinate, 10, 10);
+  }
+  
+  void setStats(double[] statsArray){
     for (int i = 0; i < 6; i++){
       stats[i] = statsArray[i];
     }

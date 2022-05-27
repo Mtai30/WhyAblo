@@ -15,7 +15,7 @@ public class Tile{
     //return terrainType;
   //}
   
-  public String[] getAdjacentTiles(){
+  String[] getAdjacentTiles(){
     String[] output;
     if (this.xCoordinate == 0 && this.yCoordinate == 0 || this.xCoordinate == 0 && this.yCoordinate == 990 || this.xCoordinate == 990 && this.yCoordinate == 0 || this.xCoordinate == 990 && this.yCoordinate == 990){
       output = new String[3];
@@ -27,10 +27,14 @@ public class Tile{
     return output;
   }
   
+  void display(){
+    square(xCoordinate, yCoordinate, 10);
+  }
+  
   //public String getRandomTerrainType(){
     //String[] terrainType = {"Forest", "Plains", "Mountain", "Ocean", "Swamp"};
     //return terrainType[(int) (Math.random() * terrainType.length)];
   //}
   
-  public void applyEffect(){}
+  void applyEffect(){}
 }
