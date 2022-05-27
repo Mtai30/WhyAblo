@@ -3,7 +3,7 @@ public class Mountain extends Dry{
     super(x, y);
   }
   
-  public void applyEffect(){
+  void applyEffect(){
     
   }
 }
