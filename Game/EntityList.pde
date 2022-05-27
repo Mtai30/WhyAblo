@@ -1,7 +1,7 @@
 public class EntityList{
-  Entity[][] entityList;
+  ArrayList<Entity> entityList;
   
   public EntityList(){
-    entityList = new Entity[size/10][size/10];
+    entityList = new ArrayList<Entity>();
   }
 }
