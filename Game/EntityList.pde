@@ -2,6 +2,6 @@ public class EntityList{
   Entity[][] entityList;
   
   public EntityList(){
-    entityList = new Entity[size/10][size/10];
+    entityList = new Entity[100][100];
   }
 }

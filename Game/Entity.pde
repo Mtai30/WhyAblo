@@ -27,12 +27,12 @@ public class Entity{
     for (int i = 0; i < offspringCount; i++){
       //make new Entity
     }
-  }
-  
-  public void evolve(){ 
     if (Math.random() > 0.5){
       this.reproduce();
     }
+  }
+  
+  public void mutate(){ 
     for (int i = 0; i < 6; i++){
       if (Math.random() > 0.5){
         if (Math.random() > 0.5){
@@ -48,7 +48,7 @@ public class Entity{
     return stats;
   }
   
-  public double[] setStats(){
-    
+  public void setStats(double[] newStats){
+    this.stats = newStats;
   }
 }

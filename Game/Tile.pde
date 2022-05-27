@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 import java.lang.*;
+color c;
 public class Tile{
   //String terrainType;
   int xCoordinate, yCoordinate;
@@ -15,6 +16,9 @@ public class Tile{
     //return terrainType;
   //}
   
+  public color getColor(){
+    return c;
+  }
   public String[] getAdjacentTiles(){
     String[] output;
     if (this.xCoordinate == 0 && this.yCoordinate == 0 || this.xCoordinate == 0 && this.yCoordinate == 990 || this.xCoordinate == 990 && this.yCoordinate == 0 || this.xCoordinate == 990 && this.yCoordinate == 990){
@@ -27,10 +31,9 @@ public class Tile{
     return output;
   }
   
-  //public String getRandomTerrainType(){
-    //String[] terrainType = {"Forest", "Plains", "Mountain", "Ocean", "Swamp"};
-    //return terrainType[(int) (Math.random() * terrainType.length)];
-  //}
-  
-  public void applyEffect(){}
+  public String getRandomTerrainType(){
+    String[] terrainType = {"Forest", "Plains", "Mountain", "Ocean", "Swamp"};
+    return terrainType[(int) (Math.random() * terrainType.length)];
+  }
+   public void applyEffect(){}
 }
