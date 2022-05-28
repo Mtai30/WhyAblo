@@ -4,7 +4,7 @@ public class Adventurer extends Entity{
     super(nameParameter, statsParameter);
     canEvolve = false;
   }
-  
+
   void evolve(){
     if (age % 5 == 0 && age != 0){
       canEvolve = true;

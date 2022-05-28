@@ -1,6 +1,7 @@
   double[] stats = {10, 10, 10, 10, 10, 10};
   Entity exampleEntity = new Entity("Aubs", stats);
   Entity demon = new Demon("DK", stats);
+  TileList TL = new TileList();
   
 void setup(){
   size(1000, 1000);
@@ -14,4 +15,9 @@ void draw(){
   secondTile.display();
   exampleEntity.display();
   demon.display();
+  for(int i = 0; i < 100; i++){
+    for(int j = 0; j < 100; j++){
+      //color c = TL.tileList[i][j].getColor();
+    }
+  }
 }

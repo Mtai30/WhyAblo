@@ -4,7 +4,7 @@ public class Demon extends Entity{
     super(nameParameter, statsParameter);
     canEvolve = false;
   }
-  
+
   void evolve(){
     if (killCount % 10 == 0 && killCount != 0){
       canEvolve = true;
