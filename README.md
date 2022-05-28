@@ -27,3 +27,8 @@ Keep forgetting to call --no-ff when merging, making my branching look improper.
 
 5/26/22 Matthew
 No significant work done. Just getting my mess of branches in order.
+
+5/28/22 Matthew
+Forgot to update the log yesterday(Junior Prom) but didn't get much work done for the same reason.
+Spent today sorting out all of our branches and getting the main up to date.
+Having trouble with color inheritance but otherwise all the displaying for the board works.
