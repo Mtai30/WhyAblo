@@ -1,4 +1,4 @@
-color redColor = color(255, 0, 0);
+color whiteColor = color(255);
 double[] stats = {10, 10, 10, 10, 10, 10};
 //Entity exampleEntity = new Entity("Aubs", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
 //Entity demon = new Demon("DK", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
@@ -12,8 +12,8 @@ void setup(){
 
 void keyPressed(){
   if (key == ' '){
-    Entity newEntity = new Entity("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
-    EL.add(newEntity);
+    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+    EL.add(newAdventurer);
   }
 }
 
@@ -26,10 +26,18 @@ void draw(){
   }
   //exampleEntity.display();
   //demon.display();
-  for (int i = 0; i < EL.size(); i++){
-    EL.get(i).display();
+  for (int row = 0; row < 100; row++){
+    for (int col = 0; col < 100; col++){
+      if (EL.get(row, col) != null){
+        EL.get(row, col).display();
+        if (frameCount % 60 == 0){
+          EL.get(row, col).wanderingMovement();
+        }
+      }
+    }
   }
   if (frameCount % 60 == 0){
-    //exampleEntity.wanderingMovement();
+    Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+    EL.add(newDemon);
   }
 }

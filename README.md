@@ -35,3 +35,6 @@ Having trouble with color inheritance but otherwise all the displaying for the b
 
 5/29/22 Matthew
 Did a ridiculous amount of coding today. The board is now fully displayed, and manages to resemble a world with numerous biomes. The only significant problem is that some of the borders are a little messy, but it's to be expected. Wrote approx 200 lines of additional code in an attempt to optimize the borders, but it doesn't work as of now so I commented it out. It's more important that I start focusing on the entities tomorrow to have a working MVP.
+
+5/30/22 Jerry
+My computer timed out before I could edit the ReadME, so this section is for what I did yesterday. Worked on Entity and EntityList. Entities have a display() method and a wanderingMovement() method, the latter of which is implemented such that the entites can move to an adjacent tile every 60 frames. EntityList now has an ArrayList, but I will revert it to a 2-D array once I know how to implement it. 
