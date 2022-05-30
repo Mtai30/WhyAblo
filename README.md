@@ -32,3 +32,6 @@ No significant work done. Just getting my mess of branches in order.
 Forgot to update the log yesterday(Junior Prom) but didn't get much work done for the same reason.
 Spent today sorting out all of our branches and getting the main up to date.
 Having trouble with color inheritance but otherwise all the displaying for the board works.
+
+5/29/22 Matthew
+Did a ridiculous amount of coding today. The board is now fully displayed, and manages to resemble a world with numerous biomes. The only significant problem is that some of the borders are a little messy, but it's to be expected. Wrote approx 200 lines of additional code in an attempt to optimize the borders, but it doesn't work as of now so I commented it out. It's more important that I start focusing on the entities tomorrow to have a working MVP.
