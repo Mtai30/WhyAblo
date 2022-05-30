@@ -1,4 +1,4 @@
-color redColor = color(255, 0, 0);
+color whiteColor = color(255);
 double[] stats = {10, 10, 10, 10, 10, 10};
 //Entity exampleEntity = new Entity("Aubs", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
 //Entity demon = new Demon("DK", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
@@ -12,7 +12,7 @@ void setup(){
 
 void keyPressed(){
   if (key == ' '){
-    Entity newEntity = new Entity("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
+    Entity newEntity = new Entity("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, whiteColor);
     EL.add(newEntity);
   }
 }
@@ -28,8 +28,8 @@ void draw(){
   //demon.display();
   for (int i = 0; i < EL.size(); i++){
     EL.get(i).display();
-  }
-  if (frameCount % 60 == 0){
-    //exampleEntity.wanderingMovement();
+    if (frameCount % 60 == 0){
+      EL.get(i).wanderingMovement();
+    }
   }
 }
