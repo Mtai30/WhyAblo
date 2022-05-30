@@ -21,3 +21,17 @@ It looks like Jerry forgot again to log his work. I will remind him again tomorr
 
 5/25/22 Jerry
 Still having trouble using branches and merging. I forgot to type "--no-ff" once, and now I think my branch is ahead of main, but I can't change it. Working on the Entity object class and its subclasses (creating methods and the like).
+
+5/26/22 Jerry
+Keep forgetting to call --no-ff when merging, making my branching look improper. Still working on the Entity object and its related classes. Notably, I created the two main Entity subclasses, Adventurer and Demon, and I decided to change the EntityList and TileList objects to have ArrayLists rather than 2-D arrays; I think it will be more manageable in the future, namely that the ArrayList will automatically increase its length when adding Entities or Tiles.
+
+5/26/22 Matthew
+No significant work done. Just getting my mess of branches in order.
+
+5/28/22 Matthew
+Forgot to update the log yesterday(Junior Prom) but didn't get much work done for the same reason.
+Spent today sorting out all of our branches and getting the main up to date.
+Having trouble with color inheritance but otherwise all the displaying for the board works.
+
+5/29/22 Matthew
+Did a ridiculous amount of coding today. The board is now fully displayed, and manages to resemble a world with numerous biomes. The only significant problem is that some of the borders are a little messy, but it's to be expected. Wrote approx 200 lines of additional code in an attempt to optimize the borders, but it doesn't work as of now so I commented it out. It's more important that I start focusing on the entities tomorrow to have a working MVP.

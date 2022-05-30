@@ -1,11 +1,11 @@
 public class Adventurer extends Entity{
   boolean canEvolve;
-  public Adventurer(String nameParameter, double[] statsParameter){
-    super(nameParameter, statsParameter);
+  public Adventurer(String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
+    super(nameParameter, statsParameter, xParameter, yParameter, colorParameter);
     canEvolve = false;
   }
-  
-  public void evolve(){
+
+  void evolve(){
     if (age % 5 == 0 && age != 0){
       canEvolve = true;
       this.reproduce();
