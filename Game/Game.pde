@@ -12,8 +12,8 @@ void setup(){
 
 void keyPressed(){
   if (key == ' '){
-    Entity newEntity = new Entity("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, whiteColor);
-    EL.add(newEntity);
+    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+    EL.add(newAdventurer);
   }
 }
 
@@ -35,5 +35,9 @@ void draw(){
         }
       }
     }
+  }
+  if (frameCount % 60 == 0){
+    Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+    EL.add(newDemon);
   }
 }
