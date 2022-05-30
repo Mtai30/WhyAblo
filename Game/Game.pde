@@ -26,10 +26,14 @@ void draw(){
   }
   //exampleEntity.display();
   //demon.display();
-  for (int i = 0; i < EL.size(); i++){
-    EL.get(i).display();
-    if (frameCount % 60 == 0){
-      EL.get(i).wanderingMovement();
+  for (int row = 0; row < 100; row++){
+    for (int col = 0; col < 100; col++){
+      if (EL.get(row, col) != null){
+        EL.get(row, col).display();
+        if (frameCount % 60 == 0){
+          EL.get(row, col).wanderingMovement();
+        }
+      }
     }
   }
 }

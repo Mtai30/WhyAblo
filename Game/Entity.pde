@@ -60,6 +60,14 @@ public class Entity{
     return stats;
   }
   
+  int getXCoordinate(){
+    return xCoordinate;
+  }
+  
+  int getYCoordinate(){
+    return yCoordinate;
+  }
+  
   void display(){
     fill(displayColor);
     ellipse(xCoordinate, yCoordinate, 10, 10);
