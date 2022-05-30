@@ -8,6 +8,7 @@ public class Entity{
   int age;
   int xCoordinate;
   int yCoordinate;
+  color displayColor;
   /*
   stats[0] = strength;
   stats[1] =  dexterity;
@@ -19,16 +20,17 @@ public class Entity{
   // implement temp stats for when an Entity enters a stat-modifying tile
   double[] stats;
   
-  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter){
+  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
     //race = raceParameter;
     stats = new double[6];
     killCount = 0;
     age = 0;
     name = nameParameter;
     age = 0;
-    xCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
-    yCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
+    xCoordinate = xParameter;
+    yCoordinate = yParameter;
     killCount = 0;
+    displayColor = colorParameter;
     for (int i = 0; i < 6; i++){
       stats[i] = statsParameter[i];
     }
@@ -41,10 +43,10 @@ public class Entity{
       childStats[i] = stats[i] * statModifier;
     }
     if (stats[5] > 7 && stats[5] < 14){
-      Entity child = new Entity(name + "'s child", childStats);
+      Entity child = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
     } else if (stats[5] > 14){
-      Entity child1 = new Entity(name + "'s child", childStats);
-      Entity child2 = new Entity(name + "'s child", childStats);
+      Entity child1 = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
+      Entity child2 = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
     }
   }
   
@@ -59,7 +61,23 @@ public class Entity{
   }
   
   void display(){
+    fill(displayColor);
     ellipse(xCoordinate, yCoordinate, 10, 10);
+  }
+  
+  void wanderingMovement(){
+    int i = 0;
+    int direction1 = (((int) (Math.random() * 3)) - 1);
+    int direction2 = (((int) (Math.random() * 3)) - 1);
+    while (xCoordinate > 5 && xCoordinate < 995 && i < 10){
+        xCoordinate += direction1;
+        i++;
+    }
+    i = 0;
+    while (yCoordinate > 5 && yCoordinate < 995 && i < 10){
+      yCoordinate += direction2;
+      i++;
+    }
   }
   
   void setStats(double[] statsArray){
