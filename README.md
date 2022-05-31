@@ -38,3 +38,6 @@ Did a ridiculous amount of coding today. The board is now fully displayed, and m
 
 5/30/22 Jerry
 My computer timed out before I could edit the ReadME, so this section is for what I did yesterday. Worked on Entity and EntityList. Entities have a display() method and a wanderingMovement() method, the latter of which is implemented such that the entites can move to an adjacent tile every 60 frames. EntityList now has an ArrayList, but I will revert it to a 2-D array once I know how to implement it. 
+
+5/30/22 Jerry
+Reverted the EntityList class to have a 2-D array rather than an ArrayList, and edited other methods in response. Entities are displayed on the board; adventurers are white ellipses while demons are brown ellipses. Pressing spacebar creates an Adventurer object, and a Demon object is initialized and displayed every 60 frames. Removed the stroke from the tile display (tentative). 
