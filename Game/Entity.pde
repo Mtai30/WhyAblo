@@ -3,12 +3,6 @@ import java.io.*;
 import java.lang.*;
 public class Entity{
   //String race;
-  String name;
-  int killCount;
-  int age;
-  int xCoordinate;
-  int yCoordinate;
-  color displayColor;
   /*
   stats[0] = strength;
   stats[1] =  dexterity;
@@ -19,6 +13,13 @@ public class Entity{
   */
   // implement temp stats for when an Entity enters a stat-modifying tile
   double[] stats;
+  int killCount;
+  int age;
+  String name;
+  int xCoordinate;
+  int yCoordinate;
+  color displayColor;
+  int HP;
   
   public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
     //race = raceParameter;
@@ -26,11 +27,10 @@ public class Entity{
     killCount = 0;
     age = 0;
     name = nameParameter;
-    age = 0;
     xCoordinate = xParameter;
     yCoordinate = yParameter;
-    killCount = 0;
     displayColor = colorParameter;
+    HP = 100;
     for (int i = 0; i < 6; i++){
       stats[i] = statsParameter[i];
     }
@@ -77,12 +77,24 @@ public class Entity{
     int i = 0;
     int direction1 = (((int) (Math.random() * 3)) - 1);
     int direction2 = (((int) (Math.random() * 3)) - 1);
-    while (xCoordinate > 5 && xCoordinate < 995 && i < 10){
+    if (xCoordinate == 5){
+      direction1 = 1;
+    }
+    if (xCoordinate == 995){
+      direction1 = -1;
+    }
+    if (yCoordinate == 5){
+      direction2 = 1;
+    }
+    if (yCoordinate == 995){
+      direction2 = -1;
+    }
+    while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
         xCoordinate += direction1;
         i++;
     }
     i = 0;
-    while (yCoordinate > 5 && yCoordinate < 995 && i < 10){
+    while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
       yCoordinate += direction2;
       i++;
     }
