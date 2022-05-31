@@ -30,8 +30,16 @@ void draw(){
     for (int col = 0; col < 100; col++){
       if (EL.get(row, col) != null){
         EL.get(row, col).display();
+        // Methods relating to reproduction are super buggy, probably don't uncomment them
+        //if (frameCount % 240 == 0){
+          //EL.get(row, col).incrementAge();
+        //}
         if (frameCount % 60 == 0){
           EL.get(row, col).wanderingMovement();
+          //Entity potentialChild = EL.get(row, col).evolve();
+          //if (potentialChild != EL.get(row, col) && potentialChild != null && row != 5 && row != 995 && col != 5 && col != 995){
+            //EL.add(potentialChild);
+          //}
         }
       }
     }

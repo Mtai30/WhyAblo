@@ -5,11 +5,12 @@ public class Adventurer extends Entity{
     canEvolve = false;
   }
 
-  void evolve(){
+  Entity evolve(){
     if (age % 5 == 0 && age != 0){
       canEvolve = true;
-      this.reproduce();
+      return this.reproduce();
     }
     canEvolve = false;
+    return this;
   }
 }

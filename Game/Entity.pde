@@ -36,24 +36,35 @@ public class Entity{
     }
   }
   
-  void reproduce(){
+  Entity reproduce(){
+    Entity child;
     double statModifier = (0.15 * Math.random()) + 0.9;
     double[] childStats = new double[6];
     for (int i = 0; i < 6; i++){
       childStats[i] = stats[i] * statModifier;
     }
-    if (stats[5] > 7 && stats[5] < 14){
-      Entity child = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
-    } else if (stats[5] > 14){
-      Entity child1 = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
-      Entity child2 = new Entity(name + "'s child", childStats, xCoordinate - 1, yCoordinate - 1, displayColor);
+    if (stats[5] > 13){
+      if (xCoordinate != 5 && yCoordinate != 5){
+        child = new Entity(name + "'s child", childStats, xCoordinate - 10, yCoordinate - 10, displayColor);
+        return child;
+      } else{
+        return null;
+      }
+    } else{
+      return null;
     }
   }
   
-  void evolve(){ 
+  Entity evolve(){ 
     if (Math.random() > 0.5){
-      this.reproduce();
+      return this.reproduce();
+    } else{
+      return this;
     }
+  }
+  
+  void incrementAge(){
+    age++;
   }
   
   double[] getStats(){
