@@ -41,3 +41,6 @@ My computer timed out before I could edit the ReadME, so this section is for wha
 
 5/30/22 Jerry
 Reverted the EntityList class to have a 2-D array rather than an ArrayList, and edited other methods in response. Entities are displayed on the board; adventurers are white ellipses while demons are brown ellipses. Pressing spacebar creates an Adventurer object, and a Demon object is initialized and displayed every 60 frames. Removed the stroke from the tile display (tentative). 
+
+5/30/22 Matthew
+Added in a menu with functioning buttons on the side, now can spawn in enemies. Change entity color to red and green instead of brown and white. Also got started on evolution/reproduction.
