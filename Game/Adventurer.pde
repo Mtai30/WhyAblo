@@ -1,7 +1,7 @@
 public class Adventurer extends Entity{
   boolean canEvolve;
   public Adventurer(String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
-    super(nameParameter, statsParameter, xParameter, yParameter, color(255));
+    super(nameParameter, statsParameter, xParameter, yParameter, color(0,255,0));
     canEvolve = false;
   }
 
@@ -13,6 +13,4 @@ public class Adventurer extends Entity{
     canEvolve = false;
     return this;
   }
-  
-  
 }

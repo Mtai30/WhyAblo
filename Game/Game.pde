@@ -1,6 +1,5 @@
 color redColor = color(255, 0, 0);
 color greenColor = color(0, 255, 0);
-color whiteColor = color(255);
 double[] stats = {10, 10, 10, 10, 10, 10};
 TileList TL = new TileList();
 EntityList EL = new EntityList();
@@ -20,13 +19,14 @@ void setup(){
   text("Demon",1064,128);
   text("Human",1064,208);
 }
-
+/*
 void keyPressed(){
   if (key == ' '){
     Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
     EL.add(newAdventurer);
   }
 }
+*/
 
 void draw(){
   for(int i = 0; i < 100; i++){
@@ -34,22 +34,18 @@ void draw(){
       TL.tileList[i][j].display();
     }
   }
-  for (int i = 0; i < EL.size(); i++){
-    EL.get(i).display();
-    if (frameCount % 15 == 0){
-      EL.get(i).wanderingMovement();
+  /*
+  for(int i = 0; i < 100; i++){
+    for(int j = 0; j < 100; j++){
+      if(EL.entityList[i][j] != null){
+        EL.entityList[i][j].display();
+        if (frameCount % 15 == 0){
+          EL.entityList[i][j].wanderingMovement();
+        }
+      }
     }
   }
-}
-
-void mouseClicked(){
-  if(mouseX > 1050 && mouseY > 100 && mouseX < 1150 && mouseY < 150){
-    Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
-    EL.add(newDemon);
-  }
-  if(mouseX > 1050 && mouseY > 175 && mouseX < 1150 && mouseY < 225){
-    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, greenColor);
-    EL.add(newAdventurer);
+  */
   //exampleEntity.display();
   //demon.display();
   for (int row = 0; row < 100; row++){
@@ -67,11 +63,22 @@ void mouseClicked(){
             //EL.add(potentialChild);
           //}
         }
+        if(frameCount % 1 == 0){
+          EL.get(row, col).ageUp();
+        }
       }
     }
   }
-  if (frameCount % 60 == 0){
-    Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+}
+
+void mouseClicked(){
+  if(mouseX > 1050 && mouseY > 100 && mouseX < 1150 && mouseY < 150){
+    Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
     EL.add(newDemon);
+  }
+  if(mouseX > 1050 && mouseY > 175 && mouseX < 1150 && mouseY < 225){
+    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, greenColor);
+    EL.add(newAdventurer);
+    
   }
 }

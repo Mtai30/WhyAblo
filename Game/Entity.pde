@@ -79,6 +79,10 @@ public class Entity{
     return yCoordinate;
   }
   
+  void ageUp(){
+    age++;
+  }
+  
   void display(){
     fill(displayColor);
     ellipse(xCoordinate, yCoordinate, 10, 10);
