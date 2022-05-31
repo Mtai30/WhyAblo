@@ -1,15 +1,16 @@
 public class Demon extends Entity{
   boolean canEvolve;
-  public Demon(String nameParameter, double[] statsParameter){
-    super(nameParameter, statsParameter);
+  public Demon(String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
+    super(nameParameter, statsParameter, xParameter, yParameter, color(255,0,0));
     canEvolve = false;
   }
-  
-  void evolve(){
+
+  Entity evolve(){
     if (killCount % 10 == 0 && killCount != 0){
       canEvolve = true;
-      this.reproduce();
+      return this.reproduce();
     }
     canEvolve = false;
+    return this;
   }
 }

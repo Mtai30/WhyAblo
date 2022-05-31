@@ -3,11 +3,6 @@ import java.io.*;
 import java.lang.*;
 public class Entity{
   //String race;
-  String name;
-  int killCount;
-  int age;
-  int xCoordinate;
-  int yCoordinate;
   /*
   stats[0] = strength;
   stats[1] =  dexterity;
@@ -18,53 +13,122 @@ public class Entity{
   */
   // implement temp stats for when an Entity enters a stat-modifying tile
   double[] stats;
+  int killCount;
+  int age;
+  String name;
+  int xCoordinate;
+  int yCoordinate;
+  color displayColor;
+  int HP;
   
-  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter){
+  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
     //race = raceParameter;
     stats = new double[6];
     killCount = 0;
     age = 0;
     name = nameParameter;
-    age = 0;
-    xCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
-    yCoordinate = (((int) (Math.random() * 4950)) + 25) / 5;
-    killCount = 0;
+    xCoordinate = xParameter;
+    yCoordinate = yParameter;
+    displayColor = colorParameter;
+    HP = 100;
     for (int i = 0; i < 6; i++){
       stats[i] = statsParameter[i];
     }
   }
   
-  void reproduce(){
+  Entity reproduce(){
+    Entity child;
     double statModifier = (0.15 * Math.random()) + 0.9;
     double[] childStats = new double[6];
     for (int i = 0; i < 6; i++){
       childStats[i] = stats[i] * statModifier;
     }
-    if (stats[5] > 7 && stats[5] < 14){
-      Entity child = new Entity(name + "'s child", childStats);
-    } else if (stats[5] > 14){
-      Entity child1 = new Entity(name + "'s child", childStats);
-      Entity child2 = new Entity(name + "'s child", childStats);
+    if (stats[5] > 13){
+      if (xCoordinate != 5 && yCoordinate != 5){
+        child = new Entity(name + "'s child", childStats, xCoordinate - 10, yCoordinate - 10, displayColor);
+        return child;
+      } else{
+        return null;
+      }
+    } else{
+      return null;
     }
   }
   
-  void evolve(){ 
+  Entity evolve(){ 
     if (Math.random() > 0.5){
-      this.reproduce();
+      return this.reproduce();
+    } else{
+      return this;
     }
+  }
+  
+  int getHP(){
+    return HP;
+  }
+  
+  void setHP(int HPParameter){
+    HP = HPParameter;
   }
   
   double[] getStats(){
     return stats;
   }
   
+  int getXCoordinate(){
+    return xCoordinate;
+  }
+  
+  int getYCoordinate(){
+    return yCoordinate;
+  }
+  
+  void ageUp(){
+    age++;
+  }
+  
   void display(){
+    fill(displayColor);
     ellipse(xCoordinate, yCoordinate, 10, 10);
+  }
+  
+  void wanderingMovement(){
+    int i = 0;
+    int direction1 = (((int) (Math.random() * 3)) - 1);
+    int direction2 = (((int) (Math.random() * 3)) - 1);
+    if (xCoordinate == 5){
+      direction1 = 1;
+    }
+    if (xCoordinate == 995){
+      direction1 = -1;
+    }
+    if (yCoordinate == 5){
+      direction2 = 1;
+    }
+    if (yCoordinate == 995){
+      direction2 = -1;
+    }
+    while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
+        xCoordinate += direction1;
+        i++;
+    }
+    i = 0;
+    while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
+      yCoordinate += direction2;
+      i++;
+    }
   }
   
   void setStats(double[] statsArray){
     for (int i = 0; i < 6; i++){
       stats[i] = statsArray[i];
+    }
+  }
+  
+  void fight(Entity other){
+    while (this.getHP() > 0 && other.getHP() > 0){
+      this.setHP(this.getHP() - (int) other.stats[0]);
+      other.setHP(other.getHP() - (int) this.stats[0]);
     }
   }
 }

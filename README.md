@@ -27,3 +27,20 @@ Keep forgetting to call --no-ff when merging, making my branching look improper.
 
 5/26/22 Matthew
 No significant work done. Just getting my mess of branches in order.
+
+5/28/22 Matthew
+Forgot to update the log yesterday(Junior Prom) but didn't get much work done for the same reason.
+Spent today sorting out all of our branches and getting the main up to date.
+Having trouble with color inheritance but otherwise all the displaying for the board works.
+
+5/29/22 Matthew
+Did a ridiculous amount of coding today. The board is now fully displayed, and manages to resemble a world with numerous biomes. The only significant problem is that some of the borders are a little messy, but it's to be expected. Wrote approx 200 lines of additional code in an attempt to optimize the borders, but it doesn't work as of now so I commented it out. It's more important that I start focusing on the entities tomorrow to have a working MVP.
+
+5/30/22 Jerry
+My computer timed out before I could edit the ReadME, so this section is for what I did yesterday. Worked on Entity and EntityList. Entities have a display() method and a wanderingMovement() method, the latter of which is implemented such that the entites can move to an adjacent tile every 60 frames. EntityList now has an ArrayList, but I will revert it to a 2-D array once I know how to implement it. 
+
+5/30/22 Jerry
+Reverted the EntityList class to have a 2-D array rather than an ArrayList, and edited other methods in response. Entities are displayed on the board; adventurers are white ellipses while demons are brown ellipses. Pressing spacebar creates an Adventurer object, and a Demon object is initialized and displayed every 60 frames. Removed the stroke from the tile display (tentative). 
+
+5/30/22 Matthew
+Added in a menu with functioning buttons on the side, now can spawn in enemies. Change entity color to red and green instead of brown and white. Also got started on evolution/reproduction.
