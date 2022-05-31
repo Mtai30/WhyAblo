@@ -12,4 +12,6 @@ public class Adventurer extends Entity{
     }
     canEvolve = false;
   }
+  
+  
 }

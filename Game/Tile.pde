@@ -151,7 +151,7 @@ public class Tile{
       if (middleLeft == 4){
         sc++;
       }
-      for(int i = 0; i < 2; i++){
+      for(int i = 0; i < 8; i++){
         int xyz = (int)(Math.random()*100);
         if (xyz > 0 && xyz < pc*20){
           x = 0;
