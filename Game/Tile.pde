@@ -75,6 +75,7 @@ public class Tile{
       setColor(swampColor);
     }
     fill(c);
+    noStroke();
     square(xCoordinate, yCoordinate, 10);
   }
 
