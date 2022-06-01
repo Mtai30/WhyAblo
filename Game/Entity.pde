@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 public class Entity{
-  //String race;
+  String race;
   /*
   stats[0] = strength;
   stats[1] =  dexterity;
@@ -63,8 +63,12 @@ public class Entity{
     }
   }
   
-  void incrementAge(){
-    age++;
+  int getHP(){
+    return HP;
+  }
+  
+  void setHP(int HPParameter){
+    HP = HPParameter;
   }
   
   double[] getStats(){
@@ -77,6 +81,14 @@ public class Entity{
   
   int getYCoordinate(){
     return yCoordinate;
+  }
+  
+  void ageUp(){
+    age++;
+  }
+  
+  String getRace(){
+    return race;
   }
   
   void display(){
@@ -114,6 +126,15 @@ public class Entity{
   void setStats(double[] statsArray){
     for (int i = 0; i < 6; i++){
       stats[i] = statsArray[i];
+    }
+  }
+  
+  void fight(Entity other){
+    while (this.getHP() > 0 && other.getHP() > 0){
+      other.setHP(other.getHP() - (int) this.stats[0]);
+    }
+    if (this.getHP() > 0){
+      killCount++;
     }
   }
 }
