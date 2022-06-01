@@ -48,6 +48,8 @@ void draw(){
   */
   //exampleEntity.display();
   //demon.display();
+  EL.adjacentEnemy();
+  EL.removeDead();        
   for (int row = 0; row < 100; row++){
     for (int col = 0; col < 100; col++){
       if (EL.get(row, col) != null){
@@ -69,7 +71,6 @@ void draw(){
       }
     }
   }
-  EL.adjacentEnemy();
 }
 
 void mouseClicked(){
