@@ -133,7 +133,7 @@ public class Entity{
     while (this.getHP() > 0 && other.getHP() > 0){
       other.setHP(other.getHP() - (int) this.stats[0]);
     }
-    if (this.getHP > 0){
+    if (this.getHP() > 0){
       killCount++;
     }
   }
