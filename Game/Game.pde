@@ -69,6 +69,7 @@ void draw(){
       }
     }
   }
+  EL.adjacentEnemy();
 }
 
 void mouseClicked(){
