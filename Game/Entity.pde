@@ -93,7 +93,7 @@ public class Entity{
     return race;
   }
   
-  void display(){
+  void display(){    
     fill(displayColor);
     ellipse(xCoordinate, yCoordinate, 10, 10);
   }
