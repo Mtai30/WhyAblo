@@ -20,6 +20,7 @@ public class Entity{
   int yCoordinate;
   color displayColor;
   int HP;
+  boolean canMove;
   
   public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
     //race = raceParameter;
@@ -30,7 +31,8 @@ public class Entity{
     xCoordinate = xParameter;
     yCoordinate = yParameter;
     displayColor = colorParameter;
-    HP = 100;
+    HP = 20;
+    canMove = true;
     for (int i = 0; i < 6; i++){
       stats[i] = statsParameter[i];
     }
@@ -97,29 +99,31 @@ public class Entity{
   }
   
   void wanderingMovement(){
-    int i = 0;
-    int direction1 = (((int) (Math.random() * 3)) - 1);
-    int direction2 = (((int) (Math.random() * 3)) - 1);
-    if (xCoordinate == 5){
-      direction1 = 1;
-    }
-    if (xCoordinate == 995){
-      direction1 = -1;
-    }
-    if (yCoordinate == 5){
-      direction2 = 1;
-    }
-    if (yCoordinate == 995){
-      direction2 = -1;
-    }
-    while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
+    if (canMove){
+      int i = 0;
+      int direction1 = (((int) (Math.random() * 3)) - 1);
+      int direction2 = (((int) (Math.random() * 3)) - 1);
+      if (xCoordinate == 5){
+        direction1 = 1;
+      }
+      if (xCoordinate == 995){
+        direction1 = -1;
+      }
+      if (yCoordinate == 5){
+        direction2 = 1;
+      }
+      if (yCoordinate == 995){
+        direction2 = -1;
+      }
+      while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
         xCoordinate += direction1;
         i++;
-    }
-    i = 0;
-    while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-      yCoordinate += direction2;
-      i++;
+      }
+      i = 0;
+      while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
+        yCoordinate += direction2;
+        i++;
+      }
     }
   }
   
@@ -130,11 +134,13 @@ public class Entity{
   }
   
   void fight(Entity other){
+    canMove = false;
     while (this.getHP() > 0 && other.getHP() > 0){
       other.setHP(other.getHP() - (int) this.stats[0]);
     }
     if (this.getHP() > 0){
       killCount++;
+      canMove = true;
     }
   }
 }
