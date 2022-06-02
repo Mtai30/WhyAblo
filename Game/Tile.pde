@@ -10,7 +10,8 @@ public class Tile{
   color mountainColor = color(220,220,220);
   color oceanColor = color(2,7,93);
   color swampColor = color(101,116,50);
-  ArrayList<Integer> biomeMaker = new ArrayList<Integer>();
+  ArrayList<Integer> biomeMaker = new ArrayList<Integer>();\
+  Entity entityOnTile;
 
   public Tile(String type, int x, int y){
     terrainType = type;
