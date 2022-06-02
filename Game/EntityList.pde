@@ -25,36 +25,38 @@ public class EntityList{
         if (this.get(row, col) != null){
           String race = this.get(row, col).getRace();
           // index 0 is top left, then goes clockwise (top, top right, middle right, etc.)
-          Entity[] adjacentEntities = {null, null, null, null, null, null, null, null};
-          if (row != 0){
-            adjacentEntities[1] = this.get(row - 1, col);
-            if (col != 0){
-              adjacentEntities[0] = this.get(row - 1, col - 1);
+          //Entity[] adjacentEntities = {null, null, null, null, null, null, null, null};
+          if (row != 0 && this.get(row - 1, col) != null && !race.equals(this.get(row - 1, col))){
+            this.get(row - 1, col).fight(this.get(row, col));
+            this.get(row, col).fight(this.get(row - 1, col));
+            if (col != 0 && this.get(row - 1, col - 1) != null && !race.equals(this.get(row - 1, col - 1))){
+              this.get(row - 1, col - 1).fight(this.get(row, col));
+              this.get(row, col).fight(this.get(row - 1, col - 1));
             }
-            if (col != 99){
-              adjacentEntities[2] = this.get(row - 1, col + 1);
-            }
-          }
-          if (row != 99){
-            adjacentEntities[5] = this.get(row + 1, col);
-            if (col != 0){
-              adjacentEntities[6] = this.get(row + 1, col - 1);
-            }
-            if (col != 99){
-              adjacentEntities[4] = this.get(row + 1, col + 1);
+            if (col != 99 && this.get(row - 1, col + 1) != null && !race.equals(this.get(row - 1, col + 1))){
+              this.get(row - 1, col + 1).fight(this.get(row, col));
+              this.get(row, col).fight(this.get(row - 1, col + 1));
             }
           }
-          if (col != 0){
-            adjacentEntities[7] = this.get(row, col - 1);
-          }
-          if (col != 99){
-            adjacentEntities[3] = this.get(row, col + 1);
-          }
-          for (int i = 0; i < 8; i++){
-            if (adjacentEntities[i] != null && adjacentEntities[i].getRace() != race){
-              adjacentEntities[i].fight(this.get(row, col));
-              this.get(row, col).fight(adjacentEntities[i]);
+          if (row != 99 && this.get(row + 1, col) != null && !race.equals(this.get(row + 1, col))){
+            this.get(row + 1, col).fight(this.get(row, col));
+            this.get(row, col).fight(this.get(row + 1, col));
+            if (col != 0 && this.get(row + 1, col - 1) != null && !race.equals(this.get(row + 1, col - 1))){
+              this.get(row + 1, col - 1).fight(this.get(row, col));
+              this.get(row, col).fight(this.get(row + 1, col - 1));
             }
+            if (col != 99 && this.get(row + 1, col + 1) != null && !race.equals(this.get(row + 1, col + 1))){
+              this.get(row + 1, col + 1).fight(this.get(row, col));
+              this.get(row, col).fight(this.get(row + 1, col + 1));
+            }
+          }
+          if (col != 0 && this.get(row, col - 1) != null && !race.equals(this.get(row, col - 1))){
+            this.get(row, col - 1).fight(this.get(row, col));
+            this.get(row, col).fight(this.get(row, col - 1));
+          }
+          if (col != 99 && this.get(row, col + 1) != null && !race.equals(this.get(row, col + 1))){
+            this.get(row, col + 1).fight(this.get(row, col));
+            this.get(row, col).fight(this.get(row, col + 1));
           }
         }
       }
