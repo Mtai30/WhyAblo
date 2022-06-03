@@ -6,6 +6,42 @@ public class TileList{
     tileList = new Tile[100][100];
   }
   
+  Tile getTile(int row, int col){
+    return tileList[row][col];
+  }
+  Entity getEntityOnTile(int row, int col){
+    return tileList[row][col].getEntity();
+  }
+  
+  ArrayList<Entity> getNeighbors(int row, int col){
+    ArrayList<Entity> neighbors = new ArrayList<Entity>();
+    if (row != 0 && this.getEntityOnTile(row - 1, col) != null){
+      neighbors.add(this.getEntityOnTile(row - 1, col));
+      if (col != 0 && this.getEntityOnTile(row - 1, col - 1) != null){
+        neighbors.add(this.getEntityOnTile(row - 1, col - 1));
+      }
+      if (col != 99 && this.getEntityOnTile(row - 1, col + 1) != null){ 
+        neighbors.add(this.getEntityOnTile(row - 1, col + 1));
+      }
+    }
+    if (row != 99 && this.getEntityOnTile(row + 1, col) != null){
+      neighbors.add(this.getEntityOnTile(row + 1, col));
+      if (col != 0 && this.getEntityOnTile(row + 1, col - 1) != null){
+        neighbors.add(this.getEntityOnTile(row + 1, col - 1));
+      }
+      if (col != 99 && this.getEntityOnTile(row + 1, col + 1) != null){
+        neighbors.add(this.getEntityOnTile(row + 1, col + 1));
+      }
+    }
+    if (col != 0 && this.getEntityOnTile(row, col - 1) != null){
+      neighbors.add(this.getEntityOnTile(row, col - 1));
+    }
+    if (col != 99 && this.getEntityOnTile(row, col + 1) != null){
+      neighbors.add(this.getEntityOnTile(row, col + 1));
+    }
+    return neighbors;
+  }
+  
   public void tileChange(Tile t, int i){
     String tileType = "empty";
     if (i == 0){
