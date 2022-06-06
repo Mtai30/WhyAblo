@@ -162,4 +162,10 @@ public class Entity{
       other.changeMoveStatus(false);
     }
   }
+  
+  void processDead(){
+    if (this.HP == 0){
+      this = null;
+    }
+  }
 }
