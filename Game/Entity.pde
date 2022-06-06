@@ -106,8 +106,10 @@ public class Entity{
   }
   
   void display(){
-    fill(displayColor);
-    ellipse(xCoordinate, yCoordinate, 10, 10);
+    if (this != null){
+      fill(displayColor);
+      ellipse(xCoordinate, yCoordinate, 10, 10);
+    }
   }
   
   void wanderingMovement(){
