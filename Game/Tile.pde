@@ -67,10 +67,6 @@ public class Tile{
     entityOnTile = theEntity;
   }
   
-  void interactAdjacentTiles(){
-    
-  }
-  
   void display(){
     if (terrainType.equals("Plains")){
       setColor(plainsColor);
