@@ -9,6 +9,7 @@ public class TileList{
   Tile getTile(int row, int col){
     return tileList[row][col];
   }
+  
   Entity getEntityOnTile(int row, int col){
     return tileList[row][col].getEntity();
   }
@@ -40,6 +41,19 @@ public class TileList{
       neighbors.add(this.getEntityOnTile(row, col + 1));
     }
     return neighbors;
+  }
+  
+  void interactAdjacentTiles(){
+    for (int row = 0; row < 100; row++){
+      for (int col = 0; col < 100; col++){
+        if (tileList[row][col].getEntity() != null){
+          ArrayList<Entity> neighbors = this.getNeighbors(row, col);
+          for (int i = 0; i < neighbors.size(); i++){
+            tileList[row][col].getEntity().fight(neighbors.get(i));
+          }
+        }
+      }
+    }
   }
   
   public void tileChange(Tile t, int i){
