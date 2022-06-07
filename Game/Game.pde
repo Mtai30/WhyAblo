@@ -31,7 +31,10 @@ void keyPressed(){
 void draw(){
   for(int i = 0; i < 100; i++){
     for(int j = 0; j < 100; j++){
-      TL.tileList[i][j].display();
+      TL.getTile(i, j).display();
+      if (TL.getEntityOnTile(i, j) != null){
+        TL.getEntityOnTile(i, j).display();
+      }
     }
   }
   /*
@@ -48,39 +51,44 @@ void draw(){
   */
   //exampleEntity.display();
   //demon.display();
-  EL.adjacentEnemy();
-  EL.removeDead();        
-  for (int row = 0; row < 100; row++){
-    for (int col = 0; col < 100; col++){
-      if (EL.get(row, col) != null){
-        EL.get(row, col).display();
+  //EL.adjacentEnemy();
+  //EL.removeDead();        
+  //for (int row = 0; row < 100; row++){
+    //for (int col = 0; col < 100; col++){
+      //if (EL.get(row, col) != null){
+        //EL.get(row, col).display();
         // Methods relating to reproduction are super buggy, probably don't uncomment them
         //if (frameCount % 240 == 0){
           //EL.get(row, col).incrementAge();
         //}
-        if (frameCount % 60 == 0){
-          EL.get(row, col).wanderingMovement();
+        //if (frameCount % 60 == 0){
+          //EL.get(row, col).wanderingMovement();
           //Entity potentialChild = EL.get(row, col).evolve();
           //if (potentialChild != EL.get(row, col) && potentialChild != null && row != 5 && row != 995 && col != 5 && col != 995){
             //EL.add(potentialChild);
           //}
-        }
-        if(frameCount % 1 == 0){
-          EL.get(row, col).ageUp();
-        }
-      }
-    }
-  }
+        //}
+        //if(frameCount % 1 == 0){
+          //EL.get(row, col).ageUp();
+        //}
+      //}
+    //}
+  //}
 }
 
 void mouseClicked(){
   if(mouseX > 1050 && mouseY > 100 && mouseX < 1150 && mouseY < 150){
     Demon newDemon = new Demon("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, redColor);
-    EL.add(newDemon);
+    //EL.add(newDemon);
+    int xIndex = (newDemon.getXCoordinate() - 5) / 10;
+    int yIndex = (newDemon.getYCoordinate() - 5) / 10;
+    TL.setEntityOnTile(xIndex, yIndex, newDemon);
   }
   if(mouseX > 1050 && mouseY > 175 && mouseX < 1150 && mouseY < 225){
     Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, greenColor);
-    EL.add(newAdventurer);
-    
+    //EL.add(newAdventurer);
+    int xIndex = (newAdventurer.getXCoordinate() - 5) / 10;
+    int yIndex = (newAdventurer.getYCoordinate() - 5) / 10;
+    TL.setEntityOnTile(xIndex, yIndex, newAdventurer);
   }
 }
