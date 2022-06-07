@@ -19,21 +19,17 @@ void setup(){
   text("Demon",1064,128);
   text("Human",1064,208);
 }
-/*
-void keyPressed(){
-  if (key == ' '){
-    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
-    EL.add(newAdventurer);
-  }
-}
-*/
 
 void draw(){
-  for(int i = 0; i < 100; i++){
+  TL.displayAll();
+  /*for(int i = 0; i < 100; i++){
     for(int j = 0; j < 100; j++){
       TL.getTile(i, j).display();
       if (TL.getEntityOnTile(i, j) != null){
         TL.getEntityOnTile(i, j).display();
+        if (frameCount % 60 == 0){
+          TL.getEntityOnTile(i, j).wanderingMovement();
+        }
       }
     }
   }
