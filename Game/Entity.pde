@@ -164,8 +164,5 @@ public class Entity{
   }
   
   void processDead(){
-    if (this.HP == 0){
-      this = null;
-    }
   }
 }
