@@ -14,6 +14,10 @@ public class TileList{
     return tileList[row][col].getEntity();
   }
   
+  void setEntityOnTile(int row, int col, Entity newEntity){
+    tileList[row][col].setEntity(newEntity);
+  }
+  
   ArrayList<Entity> getNeighbors(int row, int col){
     ArrayList<Entity> neighbors = new ArrayList<Entity>();
     if (row != 0 && this.getEntityOnTile(row - 1, col) != null){
