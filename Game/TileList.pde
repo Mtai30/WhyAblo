@@ -18,6 +18,17 @@ public class TileList{
     tileList[row][col].setEntity(newEntity);
   }
   
+  void displayAll(){
+    for (int i = 0; i < 100; i++){
+      for (int j = 0; j < 100; j++){
+        tileList[i][j].display();
+        if (tileList[i][j].getEntity() != null){
+          tileList[i][j].getEntity().display();
+        }
+      }
+    }
+  }
+  
   ArrayList<Entity> getNeighbors(int row, int col){
     ArrayList<Entity> neighbors = new ArrayList<Entity>();
     if (row != 0 && this.getEntityOnTile(row - 1, col) != null){
