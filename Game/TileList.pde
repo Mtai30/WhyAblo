@@ -71,6 +71,16 @@ public class TileList{
     }
   }
   
+  void removingDead(){
+    for (int row = 0; row < 100; row++){
+      for (int col = 0; col < 100; col++){
+        if (tileList[row][col].getEntity() != null){
+          tileList[row][col].processDead();
+        }
+      }
+    }
+  }
+  
   public void tileChange(Tile t, int i){
     String tileType = "empty";
     if (i == 0){
