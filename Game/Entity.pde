@@ -106,38 +106,41 @@ public class Entity{
   }
   
   void display(){
-    if (this != null){
+    if (HP > 0){
       fill(displayColor);
       ellipse(xCoordinate, yCoordinate, 10, 10);
     }
   }
   
-  void wanderingMovement(){
+  int[] wanderingMovement(){
     if (canMove){
       int i = 0;
-      int direction1 = (((int) (Math.random() * 3)) - 1);
-      int direction2 = (((int) (Math.random() * 3)) - 1);
+      int[] directions = {(((int) (Math.random() * 3)) - 1), (((int) (Math.random() * 3)) - 1)};
       if (xCoordinate == 5){
-        direction1 = 1;
+        directions[0] = 1;
       }
       if (xCoordinate == 995){
-        direction1 = -1;
+        directions[0] = -1;
       }
       if (yCoordinate == 5){
-        direction2 = 1;
+        directions[1] = 1;
       }
       if (yCoordinate == 995){
-        direction2 = -1;
+        directions[1] = -1;
       }
       while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
-        xCoordinate += direction1;
+        xCoordinate += directions[0];
         i++;
       }
       i = 0;
       while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-        yCoordinate += direction2;
+        yCoordinate += directions[1];
         i++;
       }
+      return directions;
+    } else{
+      int[] stationary = {0, 0};
+      return stationary;
     }
   }
   
@@ -161,8 +164,5 @@ public class Entity{
       other.setKillCount(other.getKillCount() + 1);
       other.changeMoveStatus(false);
     }
-  }
-  
-  void processDead(){
   }
 }
