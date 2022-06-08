@@ -211,7 +211,14 @@ public class Tile{
     biomeMaker.add(x);
     return terrainTypes[x];
  }
-  
+    void processDead(){
+      Entity nullEntity = new Entity("No Name", stats, 5, 5, color(200));
+      nullEntity  = null;
+      if (this.getEntity().getHP() <= 0 ){
+        this.setEntity(nullEntity);
+      }
+    }
+    
    public void applyEffect(){
    
    }
