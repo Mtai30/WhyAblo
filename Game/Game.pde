@@ -22,17 +22,21 @@ void setup(){
 
 void draw(){
   TL.displayAll();
-  /*for(int i = 0; i < 100; i++){
-    for(int j = 0; j < 100; j++){
-      TL.getTile(i, j).display();
-      if (TL.getEntityOnTile(i, j) != null){
-        TL.getEntityOnTile(i, j).display();
-        if (frameCount % 60 == 0){
-          TL.getEntityOnTile(i, j).wanderingMovement();
-        }
-      }
-    }
+  if (frameCount % 30 == 0){
+    TL.wandering();
   }
+  
+  //for(int i = 0; i < 100; i++){
+    //for(int j = 0; j < 100; j++){
+      //TL.getTile(i, j).display();
+      //if (TL.getEntityOnTile(i, j) != null){
+        //TL.getEntityOnTile(i, j).display();
+        //if (frameCount % 60 == 0){
+          //TL.getEntityOnTile(i, j).wanderingMovement();
+        //}
+      //}
+    //}
+  //}
   /*
   for(int i = 0; i < 100; i++){
     for(int j = 0; j < 100; j++){
