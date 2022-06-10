@@ -1,10 +1,22 @@
 public class TileList{
   Tile[][] tileList;
   Tile x = new Tile("Test",10,10);
+  ArrayList<Entity> entitiesOnList;
   //create a list of entities
 
   public TileList(){
     tileList = new Tile[100][100];
+  }
+  
+  void updateEntities(){
+    entitiesOnList = new ArrayList<Entity>();
+    for (int i = 0; i < 100; i++){
+      for (int j = 0; j < 100; j++){
+        if (tileList[i][j].getEntity() != null){
+          entitiesOnList.add(tileList[i][j].getEntity());
+        }
+      }
+    }
   }
   
   Tile getTile(int row, int col){
@@ -31,7 +43,7 @@ public class TileList{
   }
   
   void wandering(){
-    for (int i = 0; i < 100; i++){
+    /*for (int i = 0; i < 100; i++){
       for (int j = 0; j < 100; j++){
         if (tileList[i][j].getEntity() != null){
           int[] directions = tileList[i][j].getEntity().wanderingMovement();
@@ -41,7 +53,7 @@ public class TileList{
           tileList[i + directions[0]][j + directions[1]].setEntity(currentEntity);
         }
       }
-    }
+    }*/
   }
   
   ArrayList<Entity> getNeighbors(int row, int col){
