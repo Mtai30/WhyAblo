@@ -1,6 +1,7 @@
 public class TileList{
   Tile[][] tileList;
   Tile x = new Tile("Test",10,10);
+  //create a list of entities
 
   public TileList(){
     tileList = new Tile[100][100];
@@ -24,6 +25,20 @@ public class TileList{
         tileList[i][j].display();
         if (tileList[i][j].getEntity() != null){
           tileList[i][j].getEntity().display();
+        }
+      }
+    }
+  }
+  
+  void wandering(){
+    for (int i = 0; i < 100; i++){
+      for (int j = 0; j < 100; j++){
+        if (tileList[i][j].getEntity() != null){
+          int[] directions = tileList[i][j].getEntity().wanderingMovement();
+          Entity currentEntity = tileList[i][j].getEntity();
+          //currentEntity.changeMoveStatus(false);
+          tileList[i][j].setEntity(null);
+          tileList[i + directions[0]][j + directions[1]].setEntity(currentEntity);
         }
       }
     }
