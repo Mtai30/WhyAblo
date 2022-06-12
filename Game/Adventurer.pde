@@ -1,7 +1,7 @@
 public class Adventurer extends Entity{
   boolean canEvolve;
-  public Adventurer(String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
-    super(nameParameter, statsParameter, xParameter, yParameter, color(0,255,0));
+  public Adventurer(String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter, double startEnergy){
+    super(nameParameter, statsParameter, xParameter, yParameter, color(0,255,0), startEnergy);
     race = "Adventurer";
     canEvolve = false;
   }

@@ -43,7 +43,7 @@ public class Entity{
   //GOT THIS ROUND METHOD FROM THE INTERNET
   //GOT THIS ROUND METHOD FROM THE INTERNET
   
-  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter){
+  public Entity(/*String raceParameter,*/ String nameParameter, double[] statsParameter, int xParameter, int yParameter, color colorParameter, double startEnergy){
     //race = raceParameter;
     stats = new double[4];
     killCount = 0;
@@ -56,30 +56,60 @@ public class Entity{
     for (int i = 0; i < 4; i++){
       stats[i] = statsParameter[i];
     }
-    HP = stats[1] * 10;
+    HP = stats[1];
     maxEnergy = (stats[2] * 10);
     energy = maxEnergy;
   }
-   void forage(){
+  
+   void forage(Tile current){
      double x = Math.random() * stats[3] * 2;
+     if (current.getType().equals("Plains")){
+       if (x > 10){
+         feed();
+       }
+     }
+     if (current.getType().equals("Mountain")){
+       if (x > 20){
+         feed();
+       }
+     }
+     if (current.getType().equals("Forest")){
+       if (x > 15){
+         feed();
+         feed();
+       }
+     }
+     if (current.getType().equals("Swamp")){
+       if (x > 15){
+         feed();
+       }
+     }
+     if (current.getType().equals("Marsh")){
+       if (x > 30){
+         feed();
+         feed();
+       }
+     }
    }
     
    void energyLoss(){
-     energy = energy - maxEnergy *.06;
+     energy = energy - ((maxEnergy *.03) + (maxEnergy * ((stats[0] + stats[1] + stats[2] + stats[3]) / 1000)));
    }
    
    void demonFeed(){
-     energy = energy + maxEnergy *.4;
+     energy = energy + maxEnergy * .3 * (1 + stats[2] / 100);
      if (energy > maxEnergy){
        energy = maxEnergy;
      }
+     //System.out.println("fed");
    }
    
    void feed(){
-     energy = energy + maxEnergy *.1;
+     energy = energy + maxEnergy * .1 * (1 + stats[2] / 100);
      if (energy > maxEnergy){
        energy = maxEnergy;
      }
+     //System.out.println("fed");
    }
   void fight(Adventurer Jane, Demon Kai){
     Jane.attack(Kai);
@@ -88,7 +118,6 @@ public class Entity{
       Kai.killCount++;
       Kai.demonFeed();
     }
-    System.out.println(Kai.killCount);
     if(Kai.death()){
       Jane.killCount++;
     }
@@ -136,23 +165,23 @@ public class Entity{
   
    Adventurer advReproduce(){
     Adventurer child;
-    double statModifier = (0.15 * Math.random()) + 0.9;
     double[] childStats = new double[4];
     for (int i = 0; i < 4; i++){
+      double statModifier = (0.2 * Math.random()) + 0.9;
       childStats[i] = stats[i] * statModifier;
     }
-    child = new Adventurer(name + "'s child", childStats, xCoordinate, yCoordinate, displayColor);
+    child = new Adventurer(name + "'s child", childStats, xCoordinate, yCoordinate, displayColor, this.getEnergy());
     return child;
   }
   
   Demon demReproduce(){
     Demon child;
-    double statModifier = (0.15 * Math.random()) + 0.9;
     double[] childStats = new double[4];
     for (int i = 0; i < 4; i++){
+      double statModifier = (0.4 * Math.random()) + 0.8;
       childStats[i] = stats[i] * statModifier;
     }
-    child = new Demon(name + "'s child", childStats, xCoordinate, yCoordinate, displayColor);
+    child = new Demon(name + "'s child", childStats, xCoordinate, yCoordinate, displayColor, this.getEnergy());
     return child;
   }
     /*
@@ -172,12 +201,14 @@ public class Entity{
     if (this instanceof Adventurer){
       if (this.age % 10 == 0 && this.age > 0){
         //System.out.println("Adventurer");
+        this.setEnergy(this.getEnergy() * .75);
         return this.advReproduce();
       }
     }
     if (this instanceof Demon){
-      if (this.killCount % 5 == 0 && this.killCount > 0){
+      if (this.killCount % 3 == 0 && this.killCount > 0){
         //System.out.println("Demon");
+        this.setEnergy(this.getEnergy() * .75);
         return this.demReproduce();
       }
     }
@@ -205,6 +236,15 @@ public class Entity{
     return energy;
   }
   
+  double getMaxEnergy(){
+    maxEnergy = round(maxEnergy, 2);
+    return maxEnergy;
+  }
+  
+  void setEnergy(double x){
+    energy = x;
+  }
+  
   boolean death(){
     return this.getHP() <= 0;
   }
@@ -225,6 +265,12 @@ public class Entity{
     return yCoordinate;
   }
   
+  Tile getTileAt(int x, int y){
+    x = x / 10;
+    y = y / 10;
+    return Game.TL.getTile(x,y);
+  }
+  
   void ageUp(){
     age++;
   }
@@ -243,26 +289,95 @@ public class Entity{
       int i = 0;
       int direction1 = (((int) (Math.random() * 3)) - 1);
       int direction2 = (((int) (Math.random() * 3)) - 1);
-      if (xCoordinate == 5){
-        direction1 = 1;
+      if(this instanceof Demon){
+        if (nearestAdventurerDist() < this.stats[3] * 7){
+          //System.out.println("ets");
+          Adventurer Jane = nearestAdventurer();
+          int advX = Jane.getXCoordinate();
+          int advY = Jane.getYCoordinate();
+          int demX = this.getXCoordinate();
+          int demY = this.getYCoordinate();
+          if(demX > advX){
+            direction1 = -1;
+          }
+          if(demX < advX){
+            direction1 = 1;
+          }
+          if(demY > advY){
+            direction2 = -1;
+          }
+          if(demY < advY){
+            direction2 = 1;
+          }
+          i = 0;
+          while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
+            xCoordinate += 3 * direction1;
+            i++;
+          }
+          i = 0;
+          while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
+            yCoordinate += 3 * direction2;
+            i++;
+          }
+        } else {
+          if (xCoordinate == 5){
+            direction1 = 1;
+          }
+          if (xCoordinate == 995){
+            direction1 = -1;
+          }
+          if (yCoordinate == 5){
+            direction2 = 1;
+          }
+          if (yCoordinate == 995){
+            direction2 = -1;
+          }
+          i = 0;
+          while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
+            xCoordinate += 3 * direction1;
+            i++;
+          }
+          i = 0;
+          while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
+            yCoordinate += 3 * direction2;
+            i++;
+          }
+        }
+      } else {
+        if (xCoordinate == 5){
+          direction1 = 1;
+        }
+        if (xCoordinate == 995){
+          direction1 = -1;
+        }
+        if (yCoordinate == 5){
+          direction2 = 1;
+        }
+        if (yCoordinate == 995){
+          direction2 = -1;
+        }
+        i = 0;
+        while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
+          xCoordinate += 4 * direction1;
+          i++;
+        }
+        i = 0;
+        while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
+          yCoordinate += 4 * direction2;
+          i++;
+        }
       }
-      if (xCoordinate == 995){
-        direction1 = -1;
+      if(xCoordinate > 995){
+        xCoordinate = 995;
       }
-      if (yCoordinate == 5){
-        direction2 = 1;
+      if(xCoordinate < 5){
+        xCoordinate = 5;
       }
-      if (yCoordinate == 995){
-        direction2 = -1;
+      if(yCoordinate > 995){
+        yCoordinate = 995;
       }
-      while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
-        xCoordinate += direction1;
-        i++;
-      }
-      i = 0;
-      while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-        yCoordinate += direction2;
-        i++;
+      if(yCoordinate < 5){
+        yCoordinate = 5;
       }
     }
   }
@@ -272,6 +387,9 @@ public class Entity{
       stats[i] = statsArray[i];
     }
   }
+  
+  
+  
   /*
   void fight(Entity other){
     canMove = false;

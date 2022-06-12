@@ -54,7 +54,7 @@ public class TileList{
       tileType = "Mountain";
     }
     if (i == 3){
-      tileType = "Ocean";
+      tileType = "Marsh";
     }
     if (i == 4){
       tileType = "Swamp";
@@ -75,8 +75,8 @@ public class TileList{
       Tile s = new Tile("Swamp",t.xCoordinate,t.yCoordinate);
       tileList[t.xCoordinate/10][t.yCoordinate/10] = s;
     }
-    if(tileType.equals("Ocean")){
-      Tile o = new Tile("Ocean",t.xCoordinate,t.yCoordinate);
+    if(tileType.equals("Marsh")){
+      Tile o = new Tile("Marsh",t.xCoordinate,t.yCoordinate);
      tileList[t.xCoordinate/10][t.yCoordinate/10] = o;
     }
   }
@@ -101,8 +101,8 @@ public class TileList{
           Tile s = new Tile("Swamp",i*10,j*10);
           tileList[i][j] = s;
         }
-        if(tileType.equals("Ocean")){
-          Tile o = new Tile("Ocean",i*10,j*10);
+        if(tileType.equals("Marsh")){
+          Tile o = new Tile("Marsh",i*10,j*10);
           tileList[i][j] = o;
         }
       }
@@ -190,28 +190,28 @@ public class TileList{
             if(tileList[i+1][j+1].equals("Mountain")){
               mc++;
             }
-            if(tileList[i-1][j-1].equals("Ocean")){
+            if(tileList[i-1][j-1].equals("Marsh")){
               oc++;
             }
-            if(tileList[i-1][j].equals("Ocean")){
+            if(tileList[i-1][j].equals("Marsh")){
               oc++;
             }
-            if(tileList[i-1][j+1].equals("Ocean")){
+            if(tileList[i-1][j+1].equals("Marsh")){
               oc++;
             }
-            if(tileList[i][j-1].equals("Ocean")){
+            if(tileList[i][j-1].equals("Marsh")){
               oc++;
             }
-            if(tileList[i][j+1].equals("Ocean")){
+            if(tileList[i][j+1].equals("Marsh")){
               oc++;
             }
-            if(tileList[i+1][j-1].equals("Ocean")){
+            if(tileList[i+1][j-1].equals("Marsh")){
               oc++;
             }
-            if(tileList[i+1][j].equals("Ocean")){
+            if(tileList[i+1][j].equals("Marsh")){
               oc++;
             }
-            if(tileList[i+1][j+1].equals("Ocean")){
+            if(tileList[i+1][j+1].equals("Marsh")){
               oc++;
             }
             if(tileList[i-1][j-1].equals("Swamp")){
@@ -289,7 +289,7 @@ public class TileList{
               }
             }
           }
-          if(tileList[i][j].equals("Ocean")){
+          if(tileList[i][j].equals("Marsh")){
             if(nc/5+fc+mc+pc+sc > 7){
               if(Math.max(Math.max(Math.max(fc,mc),sc),pc) == fc){
                 tileChange(tileList[i][j],1);
