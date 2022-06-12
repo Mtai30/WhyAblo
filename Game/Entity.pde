@@ -311,12 +311,12 @@ public class Entity{
           }
           i = 0;
           while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
-            xCoordinate += 3 * direction1;
+            xCoordinate += 1 * direction1;
             i++;
           }
           i = 0;
           while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-            yCoordinate += 3 * direction2;
+            yCoordinate += 1 * direction2;
             i++;
           }
         } else {
@@ -334,12 +334,12 @@ public class Entity{
           }
           i = 0;
           while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
-            xCoordinate += 3 * direction1;
+            xCoordinate += 1 * direction1;
             i++;
           }
           i = 0;
           while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-            yCoordinate += 3 * direction2;
+            yCoordinate += 1 * direction2;
             i++;
           }
         }
@@ -358,12 +358,12 @@ public class Entity{
         }
         i = 0;
         while (xCoordinate >= 5 && xCoordinate <= 995 && i < 10){
-          xCoordinate += 4 * direction1;
+          xCoordinate += 1 * direction1;
           i++;
         }
         i = 0;
         while (yCoordinate >= 5 && yCoordinate <= 995 && i < 10){
-          yCoordinate += 4 * direction2;
+          yCoordinate += 1 * direction2;
           i++;
         }
       }
