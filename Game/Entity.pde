@@ -206,7 +206,7 @@ public class Entity{
       }
     }
     if (this instanceof Demon){
-      if (this.killCount % 3 == 0 && this.killCount > 0){
+      if (this.killCount % 5 == 0 && this.killCount > 0){
         //System.out.println("Demon");
         this.setEnergy(this.getEnergy() * .75);
         return this.demReproduce();

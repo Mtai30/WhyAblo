@@ -96,6 +96,9 @@ void draw(){
         if(EL.get(i) instanceof Adventurer){
           EL.get(i).forage(EL.get(i).getTileAt(EL.get(i).getXCoordinate(),EL.get(i).getYCoordinate()));
           EL.get(i).wanderingMovement();
+          EL.get(i).wanderingMovement();
+          EL.get(i).wanderingMovement();
+          EL.get(i).wanderingMovement();
         }
       }
       if (frameCount % 60 == 0){
