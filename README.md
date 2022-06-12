@@ -44,3 +44,7 @@ Reverted the EntityList class to have a 2-D array rather than an ArrayList, and 
 
 5/30/22 Matthew
 Added in a menu with functioning buttons on the side, now can spawn in enemies. Change entity color to red and green instead of brown and white. Also got started on evolution/reproduction.
+
+
+6/11/22 Matthew
+It's been a long two weeks. Covid and then West Point. I was too sick to work during Covid and West Point wouldn't let us access the wifi or use devices and whatnot. Anyways, I did a lot of coding today. I coded in separate evolutionary standards for humans and demons, as well as introduced a combat system and a naturally depleting energy level that creates a catalyst for evolution/natural selection. Will do fine tuning etc tmrw.
