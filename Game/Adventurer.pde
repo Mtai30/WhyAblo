@@ -5,13 +5,17 @@ public class Adventurer extends Entity{
     race = "Adventurer";
     canEvolve = false;
   }
-
+  /*
   Entity evolve(){
     if (age % 5 == 0 && age != 0){
       canEvolve = true;
       return this.reproduce();
     }
     canEvolve = false;
-    return this;
+    return null;
+  }
+  */
+  void attack(Demon Kai){
+    Kai.setHP(Kai.getHP() - stats[0]);
   }
 }

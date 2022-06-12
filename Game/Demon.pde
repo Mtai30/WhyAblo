@@ -5,13 +5,17 @@ public class Demon extends Entity{
     race = "Demon";
     canEvolve = false;
   }
-
+  /*
   Entity evolve(){
     if (killCount % 10 == 0 && killCount != 0){
       canEvolve = true;
       return this.reproduce();
     }
     canEvolve = false;
-    return this;
+    return null;
+  }
+  */
+  void attack(Adventurer Jane){
+    Jane.setHP(Jane.getHP() - stats[0]);
   }
 }
