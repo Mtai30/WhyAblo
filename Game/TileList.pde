@@ -58,29 +58,6 @@ public class TileList{
     return neighbors;
   }
   
-  void interactAdjacentTiles(){
-    for (int row = 0; row < 100; row++){
-      for (int col = 0; col < 100; col++){
-        if (tileList[row][col].getEntity() != null){
-          ArrayList<Entity> neighbors = this.getNeighbors(row, col);
-          for (int i = 0; i < neighbors.size(); i++){
-            tileList[row][col].getEntity().fight(neighbors.get(i));
-          }
-        }
-      }
-    }
-  }
-  
-  void removingDead(){
-    for (int row = 0; row < 100; row++){
-      for (int col = 0; col < 100; col++){
-        if (tileList[row][col].getEntity() != null){
-          tileList[row][col].processDead();
-        }
-      }
-    }
-  }
-  
   public void tileChange(Tile t, int i){
     String tileType = "empty";
     if (i == 0){
