@@ -279,23 +279,9 @@ public class Entity{
     return race;
   }
   
-  int getKillCount(){
-    return killCount;
-  }
-  
-  void setKillCount(int newValue){
-    killCount = newValue;
-  }
-  
-  void changeMoveStatus(boolean trueOrFalse){
-    canMove = trueOrFalse;
-  }
-  
-  void display(){
-    if (HP > 0){
-      fill(displayColor);
-      ellipse(xCoordinate, yCoordinate, 10, 10);
-    }
+ void display(){
+    fill(displayColor);
+    ellipse(xCoordinate, yCoordinate, 10, 10);
   }
   
   void wanderingMovement(){
@@ -407,17 +393,12 @@ public class Entity{
   /*
   void fight(Entity other){
     canMove = false;
-    other.changeMoveStatus(false);
     while (this.getHP() > 0 && other.getHP() > 0){
       other.setHP(other.getHP() - (int) this.stats[0]);
-      this.setHP(this.getHP() - (int) other.stats[0]);
     }
     if (this.getHP() > 0){
       killCount++;
       canMove = true;
-    } else if (other.getHP() > 0){
-      other.setKillCount(other.getKillCount() + 1);
-      other.changeMoveStatus(false);
     }
   }
   */

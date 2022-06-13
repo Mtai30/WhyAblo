@@ -30,7 +30,14 @@ void setup(){
   text("Purge",1072,360);
   pause = false;
 }
-
+/*
+void keyPressed(){
+  if (key == ' '){
+    Adventurer newAdventurer = new Adventurer("No Name", stats, (10 * (((int) (Math.random() * 100)) + 1)) - 5, (10 * (((int) (Math.random() * 100)) + 1)) - 5, color(1, 4, 5));
+    EL.add(newAdventurer);
+  }
+}
+*/
 void draw(){
   if (!pause){
     fill(255,255,255);

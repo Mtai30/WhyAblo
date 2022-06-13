@@ -8,25 +8,9 @@ public class TileList{
   
   Tile getTile(int row, int col){
     return tileList[row][col];
-  }
-  
+  }  
   Entity getEntityOnTile(int row, int col){
     return tileList[row][col].getEntity();
-  }
-  
-  void setEntityOnTile(int row, int col, Entity newEntity){
-    tileList[row][col].setEntity(newEntity);
-  }
-  
-  void displayAll(){
-    for (int i = 0; i < 100; i++){
-      for (int j = 0; j < 100; j++){
-        tileList[i][j].display();
-        if (tileList[i][j].getEntity() != null){
-          tileList[i][j].getEntity().display();
-        }
-      }
-    }
   }
   
   ArrayList<Entity> getNeighbors(int row, int col){
