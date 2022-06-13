@@ -44,3 +44,10 @@ Reverted the EntityList class to have a 2-D array rather than an ArrayList, and 
 
 5/30/22 Matthew
 Added in a menu with functioning buttons on the side, now can spawn in enemies. Change entity color to red and green instead of brown and white. Also got started on evolution/reproduction.
+
+
+6/11/22 Matthew
+It's been a long two weeks. Covid and then West Point. I was too sick to work during Covid and West Point wouldn't let us access the wifi or use devices and whatnot. Anyways, I did a lot of coding today. I coded in separate evolutionary standards for humans and demons, as well as introduced a combat system and a naturally depleting energy level that creates a catalyst for evolution/natural selection. Will do fine tuning etc tmrw.
+
+6/12/22 Matthew
+I've been sitting at my desk since 9, coding non-stop and now it's done. I've implemented an foraging method that allows humans to naturally replenish their energy. I've added in Metabolism and Intelligence as stats. Metabolism increases how much energy is gained from feeding. Intelligence increases the odds of foraging to succeed, and the ability of demons to find and hunt down humans. I've changed the wandering pattern of demons to increase variability, the spread of species across the map. I've also made it so that demons will actively chase down humans, instead of wandering into them at random. I've tweaked the numbers a bunch to maximize the length of the simulation, and now it consistently reaches 400+ years before one species wins out. I also included a cap on total number of living creatures to prevent the simulation from lagging out. I've added a pause and a purge button so that the board can be cleared on a whim, and you can pause the simulation to observe the stats of each individual unit. Also, if you click on a unit, it now displays their stats, age, and energy level. I added a few other minor optimizations as well.

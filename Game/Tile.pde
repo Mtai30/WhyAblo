@@ -8,7 +8,7 @@ public class Tile{
   color plainsColor = color(161,210,105);
   color forestColor = color(42,126,25);
   color mountainColor = color(220,220,220);
-  color oceanColor = color(2,7,93);
+  color MarshColor = color(138, 133, 40);
   color swampColor = color(101,116,50);
   ArrayList<Integer> biomeMaker = new ArrayList<Integer>();
   Entity entityOnTile;
@@ -33,7 +33,7 @@ public class Tile{
     if (terrainType.equals("Mountain")){
       return 2;
     }
-    if (terrainType.equals("Ocean")){
+    if (terrainType.equals("Marsh")){
       return 3;
     }
     if (terrainType.equals("Swamp")){
@@ -58,6 +58,9 @@ public class Tile{
     }
     return output;
   }
+  String getType(){
+    return terrainType;
+  }
   
   Entity getEntity(){
     return entityOnTile;
@@ -77,8 +80,8 @@ public class Tile{
     if (terrainType.equals("Mountain")){
       setColor(mountainColor);
     }
-    if (terrainType.equals("Ocean")){
-      setColor(oceanColor);
+    if (terrainType.equals("Marsh")){
+      setColor(MarshColor);
     }
     if (terrainType.equals("Swamp")){
       setColor(swampColor);
@@ -89,7 +92,7 @@ public class Tile{
   }
 
   public String getRandomTerrainType(){
-    String[] terrainTypes = {"Plains", "Forest", "Mountain", "Ocean", "Swamp"};
+    String[] terrainTypes = {"Plains", "Forest", "Mountain", "Marsh", "Swamp"};
     int x = (int) (Math.random() * terrainTypes.length);
     int pc = 0;
     int fc = 0;
@@ -211,14 +214,7 @@ public class Tile{
     biomeMaker.add(x);
     return terrainTypes[x];
  }
-    void processDead(){
-      Entity nullEntity = new Entity("No Name", stats, 5, 5, color(200));
-      nullEntity  = null;
-      if (this.getEntity().getHP() <= 0 ){
-        this.setEntity(nullEntity);
-      }
-    }
-    
+
    public void applyEffect(){
    
    }

@@ -1,3 +1,4 @@
+/*
 public class EntityList{
    Entity[][] entityList;
   
@@ -18,6 +19,7 @@ public class EntityList{
     return entityList[row][col];
   }
   
+  /*
   void adjacentEnemy(){
     // detect if there are enemies on adjacent tiles; if they are, make them fight
     for (int row = 0; row < 100; row++){
@@ -62,7 +64,8 @@ public class EntityList{
       }
     }
   }
-  
+  */
+  /*
   void removeDead(){
     Entity deadEntity = null;
     for (int row = 0; row < 100; row++){
@@ -74,3 +77,4 @@ public class EntityList{
     }
   }
 }
+*/
